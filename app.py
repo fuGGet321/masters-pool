@@ -153,15 +153,20 @@ total_list = [ta_total,
               ty_total]
 
 
-
+# Prepopulate new column for scores, then add totals into it
 df_bruv.loc[:,'overall_score'] = 0
 df_bruv.overall_score = total_list
 
+# Sort overall scores by rank
 df_bruv.overall_score = df_bruv.overall_score.astype(int)
 df_bruv = df_bruv.sort_values("overall_score")
 
+# Add rank column, assign rank numbers, give headings
 df_bruv.insert(0,'Rank', range(1,8))
 df_bruv.columns = ['Rank', 'Bruv', 'Score']
+
+# Add a + in front of over par scores
+df_bruv['Score'] = df_bruv['Score'].apply(lambda x: str(f"+{x}") if x > 0 else x)
 
 
 def strike_last_two(val):
