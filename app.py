@@ -40,37 +40,36 @@ for g in enumerate(golfers):
 
 # Get leaderboard from list type back in df type
 df_leaderboard = pd.DataFrame(leaderboard)
-headers = ["id", "golfer","score"]
-headers = ["golfer","score"]
+headers = ["Player","Score"]
 df_leaderboard.columns = headers
 
 df_leaderboard.reset_index(drop=True)
 
 # Change E to 0 so whole column can be changed to integers
-df_leaderboard.loc[df_leaderboard["score"] == 'E', "score"] = 0
+df_leaderboard.loc[df_leaderboard["Score"] == 'E', "Score"] = 0
 
-df_leaderboard.score = df_leaderboard.score.astype(int)
-df_leaderboard = df_leaderboard.sort_values("score")
+df_leaderboard.Score = df_leaderboard.Score.astype(int)
+df_leaderboard = df_leaderboard.sort_values("Score")
 
 
 # %%
 # Set teams as dfs
-df_ta_team = pd.DataFrame(list(df_golf.iloc[0]),columns=['golfer'])
-df_lu_team = pd.DataFrame(list(df_golf.iloc[1]),columns=['golfer'])
-df_aj_team = pd.DataFrame(list(df_golf.iloc[2]),columns=['golfer'])
-df_br_team = pd.DataFrame(list(df_golf.iloc[3]),columns=['golfer'])
-df_hu_team = pd.DataFrame(list(df_golf.iloc[4]),columns=['golfer'])
-df_ad_team = pd.DataFrame(list(df_golf.iloc[5]),columns=['golfer'])
-df_ty_team = pd.DataFrame(list(df_golf.iloc[6]),columns=['golfer'])
+df_ta_team = pd.DataFrame(list(df_golf.iloc[0]),columns=['Golfer'])
+df_lu_team = pd.DataFrame(list(df_golf.iloc[1]),columns=['Golfer'])
+df_aj_team = pd.DataFrame(list(df_golf.iloc[2]),columns=['Golfer'])
+df_br_team = pd.DataFrame(list(df_golf.iloc[3]),columns=['Golfer'])
+df_hu_team = pd.DataFrame(list(df_golf.iloc[4]),columns=['Golfer'])
+df_ad_team = pd.DataFrame(list(df_golf.iloc[5]),columns=['Golfer'])
+df_ty_team = pd.DataFrame(list(df_golf.iloc[6]),columns=['Golfer'])
 
 # Prepopulate df column to insert scores
-df_ta_team.loc[:,'score'] = 0
-df_lu_team.loc[:,'score'] = 0
-df_aj_team.loc[:,'score'] = 0
-df_br_team.loc[:,'score'] = 0
-df_hu_team.loc[:,'score'] = 0
-df_ad_team.loc[:,'score'] = 0
-df_ty_team.loc[:,'score'] = 0
+df_ta_team.loc[:,'Score'] = 0
+df_lu_team.loc[:,'Score'] = 0
+df_aj_team.loc[:,'Score'] = 0
+df_br_team.loc[:,'Score'] = 0
+df_hu_team.loc[:,'Score'] = 0
+df_ad_team.loc[:,'Score'] = 0
+df_ty_team.loc[:,'Score'] = 0
 
 
 # # %%
@@ -93,49 +92,57 @@ for bruv in range(0,7):
 
 
 # Brute force sorting DFs
-ta_data_df = pd.DataFrame(all_data[0],columns=['golfer','score'])
-ta_data_df.loc[ta_data_df["score"] == 'E', "score"] = 0
-ta_data_df.score = ta_data_df.score.astype(int)
-ta_data_df = ta_data_df.sort_values("score")
-
-lu_data_df = pd.DataFrame(all_data[1],columns=['golfer','score'])
-lu_data_df.loc[lu_data_df["score"] == 'E', "score"] = 0
-lu_data_df.score = lu_data_df.score.astype(int)
-lu_data_df = lu_data_df.sort_values("score")
-
-aj_data_df = pd.DataFrame(all_data[2],columns=['golfer','score'])
-aj_data_df.loc[aj_data_df["score"] == 'E', "score"] = 0
-aj_data_df.score = aj_data_df.score.astype(int)
-aj_data_df = aj_data_df.sort_values("score")
-
-br_data_df = pd.DataFrame(all_data[3],columns=['golfer','score'])
-br_data_df.loc[br_data_df["score"] == 'E', "score"] = 0
-br_data_df.score = br_data_df.score.astype(int)
-br_data_df = br_data_df.sort_values("score")
-
-hu_data_df = pd.DataFrame(all_data[4],columns=['golfer','score'])
-hu_data_df.loc[hu_data_df["score"] == 'E', "score"] = 0
-hu_data_df.score = hu_data_df.score.astype(int)
-hu_data_df = hu_data_df.sort_values("score")
-
-ad_data_df = pd.DataFrame(all_data[5],columns=['golfer','score'])
-ad_data_df.loc[ad_data_df["score"] == 'E', "score"] = 0
-ad_data_df.score = ad_data_df.score.astype(int)
-ad_data_df = ad_data_df.sort_values("score")
-
-ty_data_df = pd.DataFrame(all_data[6],columns=['golfer','score'])
-ty_data_df.loc[ty_data_df["score"] == 'E', "score"] = 0
-ty_data_df.score = ty_data_df.score.astype(int)
-ty_data_df = ty_data_df.sort_values("score")
+ta_data_df = pd.DataFrame(all_data[0],columns=['Golfer','Score'])
+ta_data_df.loc[ta_data_df["Score"] == 'E', "Score"] = 0
+ta_data_df.Score = ta_data_df.Score.astype(int)
+ta_data_df = ta_data_df.sort_values("Score")
 
 
-ta_total = ta_data_df.score[0:4].sum()
-lu_total = lu_data_df.score[0:4].sum()
-aj_total = aj_data_df.score[0:4].sum()
-br_total = br_data_df.score[0:4].sum()
-hu_total = hu_data_df.score[0:4].sum()
-ad_total = ad_data_df.score[0:4].sum()
-ty_total = ty_data_df.score[0:4].sum()
+lu_data_df = pd.DataFrame(all_data[1],columns=['Golfer','Score'])
+lu_data_df.loc[lu_data_df["Score"] == 'E', "Score"] = 0
+lu_data_df.Score = lu_data_df.Score.astype(int)
+lu_data_df = lu_data_df.sort_values("Score")
+
+
+aj_data_df = pd.DataFrame(all_data[2],columns=['Golfer','Score'])
+aj_data_df.loc[aj_data_df["Score"] == 'E', "Score"] = 0
+aj_data_df.Score = aj_data_df.Score.astype(int)
+aj_data_df = aj_data_df.sort_values("Score")
+
+
+br_data_df = pd.DataFrame(all_data[3],columns=['Golfer','Score'])
+br_data_df.loc[br_data_df["Score"] == 'E', "Score"] = 0
+br_data_df.Score = br_data_df.Score.astype(int)
+br_data_df = br_data_df.sort_values("Score")
+
+
+hu_data_df = pd.DataFrame(all_data[4],columns=['Golfer','Score'])
+hu_data_df.loc[hu_data_df["Score"] == 'E', "Score"] = 0
+hu_data_df.Score = hu_data_df.Score.astype(int)
+hu_data_df = hu_data_df.sort_values("Score")
+
+
+ad_data_df = pd.DataFrame(all_data[5],columns=['Golfer','Score'])
+ad_data_df.loc[ad_data_df["Score"] == 'E', "Score"] = 0
+ad_data_df.Score = ad_data_df.Score.astype(int)
+ad_data_df = ad_data_df.sort_values("Score")
+
+
+ty_data_df = pd.DataFrame(all_data[6],columns=['Golfer','Score'])
+ty_data_df.loc[ty_data_df["Score"] == 'E', "Score"] = 0
+ty_data_df.Score = ty_data_df.Score.astype(int)
+ty_data_df = ty_data_df.sort_values("Score")
+
+
+
+
+ta_total = ta_data_df.Score[0:4].sum()
+lu_total = lu_data_df.Score[0:4].sum()
+aj_total = aj_data_df.Score[0:4].sum()
+br_total = br_data_df.Score[0:4].sum()
+hu_total = hu_data_df.Score[0:4].sum()
+ad_total = ad_data_df.Score[0:4].sum()
+ty_total = ty_data_df.Score[0:4].sum()
 
 total_list = [ta_total,
               lu_total,
@@ -146,6 +153,7 @@ total_list = [ta_total,
               ty_total]
 
 
+
 df_bruv.loc[:,'overall_score'] = 0
 df_bruv.overall_score = total_list
 
@@ -153,20 +161,76 @@ df_bruv.overall_score = df_bruv.overall_score.astype(int)
 df_bruv = df_bruv.sort_values("overall_score")
 
 df_bruv.insert(0,'Rank', range(1,8))
+df_bruv.columns = ['Rank', 'Bruv', 'Score']
+
+
+def strike_last_two(val):
+    return ["background-color: grey"]
+
+last_two = pd.IndexSlice[df_bruv.index[0:2],:]
+df_bruv_styled = df_bruv.style.applymap(strike_last_two, subset=last_two)
+
+
+# Add a + in front of over par scores
+ta_data_df['Score'] = ta_data_df['Score'].apply(lambda x: str(f"+{x}") if x > 0 else x)
+lu_data_df['Score'] = lu_data_df['Score'].apply(lambda x: str(f"+{x}") if x > 0 else x)
+aj_data_df['Score'] = aj_data_df['Score'].apply(lambda x: str(f"+{x}") if x > 0 else x)
+br_data_df['Score'] = br_data_df['Score'].apply(lambda x: str(f"+{x}") if x > 0 else x)
+hu_data_df['Score'] = hu_data_df['Score'].apply(lambda x: str(f"+{x}") if x > 0 else x)
+ad_data_df['Score'] = ad_data_df['Score'].apply(lambda x: str(f"+{x}") if x > 0 else x)
+ty_data_df['Score'] = ty_data_df['Score'].apply(lambda x: str(f"+{x}") if x > 0 else x)
+
+# Replace 0s with Es
+ta_data_df.loc[ta_data_df["Score"] == 0, "Score"] = 'E'
+lu_data_df.loc[lu_data_df["Score"] == 0, "Score"] = 'E'
+aj_data_df.loc[aj_data_df["Score"] == 0, "Score"] = 'E'
+br_data_df.loc[br_data_df["Score"] == 0, "Score"] = 'E'
+hu_data_df.loc[hu_data_df["Score"] == 0, "Score"] = 'E'
+ad_data_df.loc[ad_data_df["Score"] == 0, "Score"] = 'E'
+ty_data_df.loc[ty_data_df["Score"] == 0, "Score"] = 'E'
 
 
 
 
 # %%
 st.title("STURGs MASTERS 2024")
-st.write(df_bruv)
+# st.write(df_bruv)
+st.write("---")
+st.write("OVERALL SCORE")
+st.write(df_bruv.to_html(index=False), unsafe_allow_html=True)
+st.write("---")
 
-st.markdown("~strikethru text~")
+# st.markdown("~strikethru text~")
 
-st.write(ta_data_df)
-st.write(lu_data_df)
-st.write(aj_data_df)
-st.write(br_data_df)
-st.write(hu_data_df)
-st.write(ad_data_df)
-st.write(ty_data_df)
+st.markdown(f"**Team Taylor: {ta_total}**")
+st.write(ta_data_df.to_html(index=False), unsafe_allow_html=True)
+
+st.write("")
+st.write("")
+st.write(f"**Team Lucas: {lu_total}**")
+st.write(lu_data_df.to_html(index=False), unsafe_allow_html=True)
+
+st.write("")
+st.write("")
+st.write(f"**Team AJ: {aj_total}**")
+st.write(aj_data_df.to_html(index=False), unsafe_allow_html=True)
+
+st.write("")
+st.write("")
+st.write(f"**Team Brendan: {br_total}**")
+st.write(br_data_df.to_html(index=False), unsafe_allow_html=True)
+
+st.write("")
+st.write("")
+st.write(f"**Team Hugh: {hu_total}**")
+st.write(hu_data_df.to_html(index=False), unsafe_allow_html=True)
+
+st.write("")
+st.write("")
+st.write(f"**Team Adam: {ad_total}**")
+st.write(ad_data_df.to_html(index=False), unsafe_allow_html=True)
+
+st.write("")
+st.write("")
+st.write(f"**Team Tyler: {ty_total}**")
+st.write(ty_data_df.to_html(index=False), unsafe_allow_html=True)
