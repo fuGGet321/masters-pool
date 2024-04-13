@@ -35,12 +35,12 @@ for g in enumerate(golfers):
     round_set = [rd[1]["value"] for rd in enumerate(g[1]["linescores"]) if "value" in rd[1]]
 
     # Change thru to F if round is completed, or CUT if didn't make cut
-    if golfers[g[0]]["status"]["thru"] == 18 and golfers[g[0]]["status"]["displayValue"] == 'CUT':
+    if golfers[g[0]]["status"]["hole"] == 18 and golfers[g[0]]["status"]["displayValue"] == 'CUT':
         thru = 'CUT'
-    elif golfers[g[0]]["status"]["thru"] == 18:
+    elif golfers[g[0]]["status"]["hole"] == 18:
         thru = 'F'
     else:
-        thru = golfers[g[0]]["status"]["thru"]
+        thru = golfers[g[0]]["status"]["hole"]
 
     my_data = [#golfers[g[0]]['id'],
                golfers[g[0]]["athlete"]["displayName"],
