@@ -32,17 +32,19 @@ score = golfers[0]["linescores"][0]["displayValue"]
 # %%
 leaderboard = []
 for g in enumerate(golfers):
-    round_set = [rd[1]["value"] for rd in enumerate(g[1]["linescores"])]
+    round_set = [rd[1]["value"] for rd in enumerate(g[1]["linescores"]) if "value" in rd[1]]
 
-    # Change thru to F if round is completed
-    if golfers[g[0]]["status"]["displayThru"] == '18':
+    # Change thru to F if round is completed, or CUT if didn't make cut
+    if golfers[g[0]]["status"]["thru"] == 18 and golfers[g[0]]["status"]["displayValue"] == 'CUT':
+        thru = 'CUT'
+    elif golfers[g[0]]["status"]["thru"] == 18:
         thru = 'F'
     else:
-        thru = golfers[g[0]]["status"]["displayThru"]
+        thru = golfers[g[0]]["status"]["thru"]
 
     my_data = [#golfers[g[0]]['id'],
                golfers[g[0]]["athlete"]["displayName"],
-               golfers[g[0]]["linescores"][0]["displayValue"],
+               golfers[g[0]]["score"]["displayValue"],
                thru]
     for r in round_set:
         my_data.append(int(r))
@@ -109,6 +111,7 @@ for r in range(len(leaderboard[0]) - len(bruv_heads)):
 
 
 # Brute force sorting DFs
+# Weird slicing operation came from https://stackoverflow.com/questions/43596579/how-to-use-pandas-stylers-for-coloring-an-entire-row-based-on-a-given-column
 ta_data_df = pd.DataFrame(all_data[0], columns=bruv_heads)
 ta_data_df.loc[ta_data_df["Score"] == 'E', "Score"] = 0
 ta_data_df.Score = ta_data_df.Score.astype(int)
