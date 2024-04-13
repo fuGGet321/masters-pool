@@ -54,20 +54,20 @@ for g in enumerate(golfers):
 # %%
 
 # # Get leaderboard from list type back in df type
-# df_leaderboard = pd.DataFrame(leaderboard)
-# # headers = ["Player","Score", "Thru"]
-# # df_leaderboard.columns = headers
+df_leaderboard = pd.DataFrame(leaderboard)
+headers = ["Player","Score", "Thru", "R1", "R2", "R3"]
+df_leaderboard.columns = headers
 
 # # Add Round Score placeholders
 # df_leaderboard.loc[:,['R1','R2','R3','R4']] = 0
 
-# df_leaderboard.reset_index(drop=True)
+df_leaderboard.reset_index(drop=True)
 
 # # Change E to 0 so whole column can be changed to integers
-# df_leaderboard.loc[df_leaderboard["Score"] == 'E', "Score"] = 0
+df_leaderboard.loc[df_leaderboard["Score"] == 'E', "Score"] = 0
 
-# df_leaderboard.Score = df_leaderboard.Score.astype(int)
-# df_leaderboard = df_leaderboard.sort_values("Score")
+df_leaderboard.Score = df_leaderboard.Score.astype(int)
+df_leaderboard = df_leaderboard.sort_values("Score")
 
 
 # %%
@@ -124,6 +124,7 @@ last_two = ta_data_df.tail(2)
 slice_ = pd.IndexSlice[last_two.index, last_two.columns]
 ta_data_s = ta_data_df.style.set_properties(**{'background-color': 'grey'}, subset=slice_)
 
+# %%
 
 lu_data_df = pd.DataFrame(all_data[1],columns=bruv_heads)
 lu_data_df.loc[lu_data_df["Score"] == 'E', "Score"] = 0
