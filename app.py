@@ -45,13 +45,12 @@ for g in enumerate(golfers):
 
     my_data = [#golfers[g[0]]['id'],
                golfers[g[0]]["athlete"]["displayName"],
-               golfers[g[0]]["score"]["displayValue"],
+               golfers[g[0]]["statistics"][0]["value"],
                thru]
     for r in round_set:
         my_data.append(int(r))
     leaderboard.append(my_data)
 
-# %%
 
 # # Get leaderboard from list type back in df type
 df_leaderboard = pd.DataFrame(leaderboard)
