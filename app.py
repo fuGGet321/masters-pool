@@ -108,13 +108,14 @@ for r in range(len(leaderboard[0]) - len(bruv_heads)):
     r_head = f"R{r+1}"
     bruv_heads.append(r_head)
 
-
+# %%
 
 # Brute force sorting DFs
 # Weird slicing operation came from https://stackoverflow.com/questions/43596579/how-to-use-pandas-stylers-for-coloring-an-entire-row-based-on-a-given-column
 ta_data_df = pd.DataFrame(all_data[0], columns=bruv_heads)
 ta_data_df.loc[ta_data_df["Score"] == 'E', "Score"] = 0
 ta_data_df.loc[pd.isna(ta_data_df["R3"]), "R3"] = 80 # Replace cut scores w 80
+ta_data_df.loc[pd.isna(ta_data_df["R4"]), "R4"] = 80 # Replace cut scores w 80
 ta_data_df.Score = ta_data_df.Score.astype(int)
 ta_data_df.iloc[:,-3:] = ta_data_df.iloc[:,-3:].astype(int) # Change rd scores to ints
 ta_data_df = ta_data_df.sort_values("Score")
@@ -128,6 +129,7 @@ ta_data_s = ta_data_df.style.set_properties(**{'background-color': 'grey'}, subs
 lu_data_df = pd.DataFrame(all_data[1],columns=bruv_heads)
 lu_data_df.loc[lu_data_df["Score"] == 'E', "Score"] = 0
 lu_data_df.loc[pd.isna(lu_data_df["R3"]), "R3"] = 80 # Replace cut scores w 80
+lu_data_df.loc[pd.isna(lu_data_df["R4"]), "R4"] = 80 # Replace cut scores w 80
 lu_data_df.Score = lu_data_df.Score.astype(int)
 lu_data_df.iloc[:,-3:] = lu_data_df.iloc[:,-3:].astype(int) # Change rd scores to ints
 lu_data_df = lu_data_df.sort_values("Score")
@@ -141,6 +143,7 @@ lu_data_s = lu_data_df.style.set_properties(**{'background-color': 'grey'}, subs
 aj_data_df = pd.DataFrame(all_data[2],columns=bruv_heads)
 aj_data_df.loc[aj_data_df["Score"] == 'E', "Score"] = 0
 aj_data_df.loc[pd.isna(aj_data_df["R3"]), "R3"] = 80 # Replace cut scores w 80
+aj_data_df.loc[pd.isna(aj_data_df["R4"]), "R4"] = 80 # Replace cut scores w 80
 aj_data_df.Score = aj_data_df.Score.astype(int)
 aj_data_df.iloc[:,-3:] = aj_data_df.iloc[:,-3:].astype(int) # Change rd scores to ints
 aj_data_df = aj_data_df.sort_values("Score")
@@ -154,6 +157,7 @@ aj_data_s = aj_data_df.style.set_properties(**{'background-color': 'grey'}, subs
 br_data_df = pd.DataFrame(all_data[3],columns=bruv_heads)
 br_data_df.loc[br_data_df["Score"] == 'E', "Score"] = 0
 br_data_df.loc[pd.isna(br_data_df["R3"]), "R3"] = 80 # Replace cut scores w 80
+br_data_df.loc[pd.isna(br_data_df["R4"]), "R4"] = 80 # Replace cut scores w 80
 br_data_df.Score = br_data_df.Score.astype(int)
 br_data_df.iloc[:,-3:] = br_data_df.iloc[:,-3:].astype(int) # Change rd scores to ints
 br_data_df = br_data_df.sort_values("Score")
@@ -167,6 +171,7 @@ br_data_s = br_data_df.style.set_properties(**{'background-color': 'grey'}, subs
 hu_data_df = pd.DataFrame(all_data[4],columns=bruv_heads)
 hu_data_df.loc[hu_data_df["Score"] == 'E', "Score"] = 0
 hu_data_df.loc[pd.isna(hu_data_df["R3"]), "R3"] = 80 # Replace cut scores w 80
+hu_data_df.loc[pd.isna(hu_data_df["R4"]), "R4"] = 80 # Replace cut scores w 80
 hu_data_df.Score = hu_data_df.Score.astype(int)
 hu_data_df.iloc[:,-3:] = hu_data_df.iloc[:,-3:].astype(int) # Change rd scores to ints
 hu_data_df = hu_data_df.sort_values("Score")
@@ -180,6 +185,7 @@ hu_data_s = hu_data_df.style.set_properties(**{'background-color': 'grey'}, subs
 ad_data_df = pd.DataFrame(all_data[5],columns=bruv_heads)
 ad_data_df.loc[ad_data_df["Score"] == 'E', "Score"] = 0
 ad_data_df.loc[pd.isna(ad_data_df["R3"]), "R3"] = 80 # Replace cut scores w 80
+ad_data_df.loc[pd.isna(ad_data_df["R4"]), "R4"] = 80 # Replace cut scores w 80
 ad_data_df.Score = ad_data_df.Score.astype(int)
 ad_data_df.iloc[:,-3:] = ad_data_df.iloc[:,-3:].astype(int) # Change rd scores to ints
 ad_data_df = ad_data_df.sort_values("Score")
@@ -193,6 +199,7 @@ ad_data_s = ad_data_df.style.set_properties(**{'background-color': 'grey'}, subs
 ty_data_df = pd.DataFrame(all_data[6],columns=bruv_heads)
 ty_data_df.loc[ty_data_df["Score"] == 'E', "Score"] = 0
 ty_data_df.loc[pd.isna(ty_data_df["R3"]), "R3"] = 80 # Replace cut scores w 80
+ty_data_df.loc[pd.isna(ty_data_df["R4"]), "R4"] = 80 # Replace cut scores w 80
 ty_data_df.Score = ty_data_df.Score.astype(int)
 ty_data_df.iloc[:,-3:] = ty_data_df.iloc[:,-3:].astype(int) # Change rd scores to ints
 ty_data_df = ty_data_df.sort_values("Score")
